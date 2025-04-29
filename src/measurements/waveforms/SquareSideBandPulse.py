@@ -3,7 +3,7 @@ import numpy as np
 
 class SquareSideBandPulse(Pulse):
     '''
-        This class defines a cosine wave oscillating pulse with a square envelope
+        This class defines a sine wave oscillating pulse with a square envelope
         to be sent to the AWG.
         The area of the envelope of this pulse is length*amplitude
     '''
@@ -42,7 +42,7 @@ class SquareSideBandPulse(Pulse):
         Returns:
             np.ndarray: amplitudes of the oscillation
         '''
-        return np.cos(2 * np.pi * self.frequency * t + self.phase)
+        return np.sin(2 * np.pi * self.frequency * t + self.phase)
 
     def build(self, timestep, initial_time=0):
         t = np.arange(initial_time, initial_time + self.length, timestep)
