@@ -59,7 +59,7 @@ class GaussianCosPulse(Pulse):
         Returns:
             np.ndarray: amplitudes of the oscillation
         '''
-        return np.cos(2 * np.pi * self.frequency * t + self.phase)
+        return np.sin(2 * np.pi * self.frequency * t + self.phase)
         
     def build(self, timestep, initial_time=0):
         t = np.arange(initial_time, initial_time + self.length, timestep)
