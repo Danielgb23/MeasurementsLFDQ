@@ -4,7 +4,7 @@ import numpy as np
 
 class SenoidCosPulse(Pulse):
     """
-    This class defines a cosine wave oscillating pulse with a sine wave 0 to pi
+    This class defines a sine wave oscillating pulse with a sine wave 0 to pi
     envelope to be sent to the AWG.
     The total area of the envelope of this pulse is given by
     2*amplitude*length/pi
@@ -50,7 +50,7 @@ class SenoidCosPulse(Pulse):
         Returns:
             np.ndarray: amplitudes of the oscillation
         '''
-        return np.cos(2 * np.pi * self.frequency * t + self.phase)
+        return np.sin(2 * np.pi * self.frequency * t + self.phase)
 
     def build(self, timestep, initial_time=0):
         t = np.arange(initial_time, initial_time + self.length, timestep)
