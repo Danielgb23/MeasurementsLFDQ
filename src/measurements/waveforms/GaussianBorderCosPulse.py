@@ -4,7 +4,7 @@ import numpy as np
 
 class GaussianBorderCosPulse(Pulse):
     '''
-    This class defines a cossine wave oscillating pulse with a square envelope
+    This class defines a sine wave oscillating pulse with a square envelope
      and gaussian curves as edges to be sent to the AWG.
     The total area of the envelope of this pulse is given by
     amplitude*(sigma*sqrt(2*pi)+(length-2 * border_lenght * sigma)) if border_length >> sigma
@@ -74,7 +74,7 @@ class GaussianBorderCosPulse(Pulse):
         Returns:
             np.ndarray: amplitudes of the oscillation
         '''
-        return np.cos(2 * np.pi * self.frequency * t + self.phase)
+        return np.sin(2 * np.pi * self.frequency * t + self.phase)
 
     def build(self, timestep, initial_time=0):
         t = np.arange(initial_time, initial_time + self.length, timestep)
